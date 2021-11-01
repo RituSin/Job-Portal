@@ -1,0 +1,28 @@
+
+
+ul.breadcrumb 
+{
+    margin-top: 5%;
+    list-style: none;
+}
+
+ul.breadcrumb li {
+    display: inline;
+    font-size: 9px;
+}
+
+ul.breadcrumb li+li:before {
+    padding: 2px;
+    color: white;
+    content: ">\00a0";
+}
+
+ul.breadcrumb li a {
+    color: white;
+    text-decoration: none;
+}
+  
+ul.breadcrumb li a:hover {
+    color: #43AFFF;
+    text-decoration: none;
+}

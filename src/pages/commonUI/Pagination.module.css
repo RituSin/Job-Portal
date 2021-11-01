@@ -1,0 +1,38 @@
+
+
+.pagination
+{
+    /* position: absolute;
+    bottom: 8px;
+    align-content: center; */
+    
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+
+.pagination span
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    padding: 0px 4px;
+    border: 1px solid #303F60;
+    opacity: 0.6;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+}
+
+.pagination span:nth-child(2)
+{
+    opacity: 1;
+    margin: 0 4px;
+    background-color: #43AFFF;
+    opacity: 0.8;
+    border: none;
+    padding: 1px 6px;
+    cursor: default;
+}

@@ -1,0 +1,15 @@
+
+.Applicants
+{
+    /* min-height: 64vh;
+    min-width: 36vw;
+    height: 65vh; */
+    
+
+    max-height: 56vh;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    padding-bottom: 10px;
+    
+}

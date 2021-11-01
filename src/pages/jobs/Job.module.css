@@ -1,0 +1,57 @@
+
+
+.job{
+    width: 18.5vw;
+    height: 24vh;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #557DA526;
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 10px 12px;
+}
+
+.job:hover
+{
+    box-shadow: 5px 10px 26px #557DA526;
+}
+
+.job h3{
+    font-weight: 400;
+}
+.job > p{
+    font: normal normal normal 14px/16px Helvetica Neue;
+    letter-spacing: 0px;
+    color: #303F60;
+    opacity: 0.8;
+}
+
+.job > div
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.job > div p
+{
+    letter-spacing: 0px;
+    color: #303F60;
+    opacity: 0.8;
+    font-size: 12px;
+}
+
+.job > div input[type=button]
+{
+    background: #43AFFF33 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 0 8px;
+    position: relative;
+    top: 6.2px;
+
+    font: normal normal normal 12px Helvetica Neue;
+    color: #303F60;
+    text-transform: capitalize;
+    cursor: pointer;
+}

@@ -1,24 +1,29 @@
 import logo from './logo.svg';
+import React, {useEffect} from "react"
 import './App.css';
+import Landing from './pages/landing/Landing';
+import Signup from './pages/landing/Signup';
+import Login from './pages/landing/Login';
+import ResetPassword from './pages/landing/ResetPassword';
+import ForgotPassword from './pages/landing/ForgotPassword';
+import Home from './pages/home/Home';
+import { useSelector } from 'react-redux';
+import Header from './pages/header/Header';
 
 function App() {
+  const isAuth = useSelector(state => state.auth.isAuthenticated);;
+  // 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div className="container">
+     <Header/>
+
+      <main>
+          {isAuth ?
+            <Home/>:
+            <Landing/>
+          }
+      </main>
+  </div>
   );
 }
 

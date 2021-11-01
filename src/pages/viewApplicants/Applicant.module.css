@@ -1,0 +1,55 @@
+
+
+.Applicant
+{
+    min-width: 15vw;
+    min-height: 20vh;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 12px;
+    background-color: white;
+    padding-top: 0;
+}
+
+
+.Applicant .row
+{
+    width: 100%;
+}
+
+.row .circle
+{
+    position: relative;
+    top:-10px;
+    display: inline-block; 
+    text-align: center;   
+    background: #D9EFFF 0% 0% no-repeat padding-box;
+    border-radius: 50%; 
+    padding: 10px 16px;
+    text-align: center;
+    margin-right: 15px;   
+}
+
+.row div{
+    display: inline-block;
+}
+
+.title{
+    text-align: left;
+    font: normal normal medium 15px Helvetica Neue;
+    letter-spacing: 0px;
+    color: #303F60;
+    opacity: 1;
+    font-weight: 700;
+    margin-bottom: 1px;
+}
+
+.desc{
+    text-align: left;
+    font: normal normal medium 14px Helvetica Neue;
+    letter-spacing: 0px;
+    color: #303F60;
+    opacity: 0.8;
+}

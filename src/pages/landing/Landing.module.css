@@ -1,0 +1,31 @@
+
+
+
+.Landing-container 
+{
+    position: absolute;
+    top: 18%;   
+
+    min-width: 38vw;
+    width: 40vw;
+    height: auto;
+    background-color: white;
+    box-shadow: 0px 30px 36px #557DA526;
+    border-radius: 20px;
+
+    box-sizing: border-box;
+    padding: 25px;
+    margin-bottom: 20px;
+    animation: appear 1s ease-out ;
+}
+
+@keyframes appear {
+    0%
+    {
+        top: 20%
+    }
+    100%
+    {
+        top:18%
+    }
+}
