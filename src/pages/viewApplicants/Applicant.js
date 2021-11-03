@@ -1,25 +1,26 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Pagination from "../commonUI/Pagination";
 import styles from './Applicant.module.css';
 
-const Applicant = () => 
+const Applicant = (props) => 
 {
+    const [email, name,skills] = props.data;
     return(
         <div className={styles.Applicant}>
             
             <div className={styles.row}>
-                <span className={styles.circle}>E</span>
+                <span className={styles.circle}>{name[0]}</span>
                 
                 <div>
-                    <p className={styles.title}>Eliza Lucas</p>
-                    <span className={styles.desc}>abc123@gmail.com</span>
+                    <p className={styles.title}>{name}</p>
+                    <span className={styles.desc}>{email}</span>
                 </div>
             </div>
 
             <div className={styles.row}>
                 <p className={styles.title}>Skills</p>
-                <span className={styles.desc}>Coding, designing, graphics, website, app ui</span>
+                <span className={styles.desc}>{skills}</span>
             </div>
         </div>
         

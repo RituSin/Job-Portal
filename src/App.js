@@ -11,14 +11,15 @@ import { useSelector } from 'react-redux';
 import Header from './pages/header/Header';
 
 function App() {
-  const isAuth = useSelector(state => state.auth.isAuthenticated);;
+  const isAuth = useSelector(state => state.auth.isAuthenticated);
+  
   // 
   return (
   <div className="container">
      <Header/>
 
       <main>
-          {isAuth ?
+          {isAuth && window.sessionStorage.getItem('token')?
             <Home/>:
             <Landing/>
           }

@@ -1,4 +1,13 @@
 
+body,html{
+    margin:0;
+    width:100%;
+    height: auto;
+  }
+  html{
+    background: linear-gradient(#1A253C 0%, #1A253C 30%,  #EDF6FF 30%, #EDF6FF 100%) no-repeat fixed;
+  }
+
 .Home-container
 {
     width: 86%;

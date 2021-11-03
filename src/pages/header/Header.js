@@ -9,6 +9,7 @@ import styles from './Header.module.css';
 
 const Header = () => 
 {
+  const name = window.sessionStorage.getItem("name");
   const dispatch = useDispatch();
   const isAuth = useSelector(state => state.auth.isAuthenticated);
   const isforgotPass = useSelector(state => state.landing.forgotPassword);
@@ -22,7 +23,9 @@ const Header = () =>
     }
   }
 
-  const onTooltipClick = () => {
+  const onLogoutTooltipClick = () => {
+    window.sessionStorage.removeItem("name");
+    window.sessionStorage.removeItem("token");
     const tooltip = document.getElementById("tooltip");
 
     dispatch(authAction.logout());
@@ -49,12 +52,13 @@ const Header = () =>
             </button>
           }
 
-          {isAuth && 
+          {isAuth && window.sessionStorage.getItem('token')&& 
+          
           <div className={styles.loginprofile}>
             <input type="button" value="Post a Job" onClick={onPostJob} />
-            <span className={styles.circle}>R</span>
+            <span className={styles.circle}>{name[0].toUpperCase()}</span>
             <span className={styles.tooltipButton} id="tooltipButton" onClick={onTooltipButtonClick}> &#9660; </span>
-            <p className={styles.tooltip} id="tooltip" onClick={onTooltipClick}>Logout</p>
+            <p className={styles.tooltip} id="tooltip" onClick={onLogoutTooltipClick}>Logout</p>
           </div>
           }
         </header>

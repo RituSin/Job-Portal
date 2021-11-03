@@ -14,7 +14,7 @@ const Signup = () =>
         email:"",
         userRole: 0,
         password: "",
-        confirmpassword: "",
+        confirmPassword: "",
         name: "",
         skills: ""
     });
@@ -26,8 +26,7 @@ const Signup = () =>
         if(e.target.name == "userRole"){
             value = isCandidate ? 1 : 0;
         }
-        console.log(e.target.name, isCandidate, value)
-
+        
         setFormData((prevState) => {
             return {...prevState, [e.target.name] : value.trim()}
         });
@@ -37,9 +36,9 @@ const Signup = () =>
     {
         e.preventDefault();
 
-        console.log("final",formData)
-        if(formData.password != formData.confirmpassword){
-            console.log("Password does not match");
+        //console.log("final",formData)
+        if(formData.password != formData.confirmPassword){
+            alert("Password does not match");
             return;
         }
 
@@ -51,11 +50,30 @@ const Signup = () =>
         fetch(
             'https://jobs-api.squareboat.info/api/v1/auth/register',
             {
-                method:'POST',
-                body: JSON.stringify(formData)
+                method: "POST", 
+                body: JSON.stringify(formData),
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             }
         )
-        .then(res => console.log(res))
+        .then(res => res.json())
+        .then(response => {
+            console.log(response);
+            if(response.success)
+            {
+                window.sessionStorage.setItem("token", response.data.token);
+                setFormData({
+                    email:"",
+                    userRole: 0,
+                    password: "",
+                    confirmPassword: "",
+                    name: "",
+                    skills: ""
+                });
+            }
+        })
         .catch(e => console.log(e))
     }
 
@@ -104,7 +122,7 @@ const Signup = () =>
 
                     <div className={styles.password}>
                         <label for="password">Password*</label>
-                        <input type="password" id="password" name="confirmpassword" value={formData.confirmpassword} required onChange={onChangeHandler} placeholder="Enter your password"/>
+                        <input type="password" id="password" name="confirmPassword" value={formData.confirmPassword} required onChange={onChangeHandler} placeholder="Enter your password"/>
                     </div>
                 </div>
                

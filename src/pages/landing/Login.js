@@ -15,9 +15,45 @@ const Login = () =>
 
     const [err, setErr] = useState(false);
 
+    const onChangeHandler = (e) =>
+    {
+        const value = e.target.value;
+        setFormData((prevState) => {
+            return {...prevState, [e.target.name] : value.trim()}
+        }); 
+    }
+
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        dispatch(authAction.login());
+       
+        //console.log("final",formData)
+        
+        fetch(
+            'https://jobs-api.squareboat.info/api/v1/auth/login',
+            {
+                method: "POST", 
+                body: JSON.stringify(formData),
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }
+        )
+        .then(res => res.json())
+        .then(response => {
+            console.log(response);
+            if(response.success)
+            {
+                window.sessionStorage.setItem("token", response.data.token);
+                window.sessionStorage.setItem("name", response.data.name);
+                dispatch(authAction.login());
+            }
+            else{
+                setErr(true);
+            }
+        })
+        .catch(e => console.log(e))
+    
     }
 
     const onOpenSignUpHandler = () => 
@@ -38,12 +74,26 @@ const Login = () =>
             <form onSubmit={onSubmitHandler}>
                 <div className={styles.row}>
                     <label for="email">Email address:</label>
-                    <input type="email" id="email" name="email" value={formData.email} placeholder="Enter your email" />                
+                    <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    value={formData.email} 
+                    placeholder="Enter your email"
+                    onChange={onChangeHandler} />                
                 </div>
                 <div className={styles.row}>
                     <label for="password">Password:</label>
                     <span className={styles.blue} onClick={onForgotPasswordHandler}>Forgot your password?</span>
-                    <input type="password" id="password" name="password"  value={formData.email} placeholder="Enter your password"/>
+                    <input 
+                    type="password" 
+                    id="password" 
+                    name="password"  
+                    required
+                    value={formData.password} 
+                    placeholder="Enter your password"
+                    onChange={onChangeHandler}/>
                 </div>
                 {err && <span className={styles.error}>Incorrect email address or password.</span>}
                <input type="submit" value="Submit" />

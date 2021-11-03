@@ -1,17 +1,16 @@
 
 import React from "react";
-import styles from './Job.module.css';
+import { useDispatch } from "react-redux";
+import { homeAction } from "../../store/home-slice";
+import styles from './NoJob.module.css';
 
 const Nojob = () => 
 {
-    const onPostJob = () => 
-    {
-        history.push("/home/post-job");
-    }
+    const dispatch = useDispatch();
     return(
-        <div className={styles.job}>            
+        <div className={styles.nojob}>            
             <p>Your posted jobs will show here!</p>
-            <button onClick={onPostJob}>Post a Job</button>
+            <button onClick={() => dispatch(homeAction.postjob())}>Post a Job</button>
         </div>
     )
 }
